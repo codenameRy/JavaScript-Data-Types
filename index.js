@@ -54,3 +54,46 @@ function readNumber() {
 }
 
 alert(`Read: ${readNumber()}`);
+
+//Challenge 4 - A random number from min to max
+
+//Write the function random(min, max) to generate a random floating-point number from min to max (not including max). Can include min
+
+//Solution
+
+function random(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+alert( random(1, 5) );
+alert( random(1, 10) );
+alert( random(1, 6) );
+
+//Challenge 5 - A random integer from min to max
+
+//Create a function randomInteger(min, max) that generates a random integer number from min to max including both min and max as possible values.
+
+// Any number from the interval min..max must appear with the same probability.
+
+//Solution with Decimals
+function randomInteger(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.random() * (max - min);
+}
+
+alert( randomInteger(1, 5) );
+alert( randomInteger(1, 10) );
+alert( randomInteger(1, 6) );
+
+//Solution with Integers, no Decimals
+
+function randomInteger2(min, max) {
+  // here rand is from min to (max+1)
+  let rand = min + Math.random() * (max + 1 - min);
+  return Math.floor(rand);
+}
+
+alert( randomInteger2(1, 5) );
+alert( randomInteger2(1, 10) );
+alert( randomInteger2(1, 6) );
