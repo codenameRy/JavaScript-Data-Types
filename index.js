@@ -100,7 +100,7 @@ alert( randomInteger2(1, 6) );
 
 //July 21, 2020 - Strings
 
-//Challenge - Write a function ucFirst(str) that returns the string str with the uppercased first character, for instance:
+//Challenge 1 - Write a function ucFirst(str) that returns the string str with the uppercased first character, for instance:
 
 // ucFirst("john") == "John";
 
@@ -119,3 +119,72 @@ function ucFirst2(str) {
 }
 
 console.log( ucFirst("peace") ); // Peace
+
+//Challenge 2 - Check for Spam
+
+/*Write a function checkSpam(str) that returns true if str contains ‘viagra’ or ‘XXX’, otherwise false.
+
+The function must be case-insensitive:
+
+checkSpam('buy ViAgRA now') == true
+checkSpam('free xxxxx') == true
+checkSpam("innocent rabbit") == false*/
+
+//Solution
+function checkSpam(str) {
+  let lowerStr = str.toLowerCase()
+  return lowerStr.includes("viagra") || lowerStr.includes("xxx")
+}
+
+console.log( checkSpam('buy ViAgRA now') ) 
+console.log( checkSpam('free xxxxx') ) 
+console.log(checkSpam("innocent rabbit") ) 
+
+// Truncate the text
+// Create a function truncate(str, maxlength) that checks the length of the str and, if it exceeds maxlength – replaces the end of str with the ellipsis character "…", to make its length equal to maxlength.
+
+// The result of the function should be the truncated (if needed) string.
+
+// For instance:
+
+// truncate("What I'd like to tell on this topic is:", 20) = "What I'd like to te…"
+
+// truncate("Hi everyone!", 20) = "Hi everyone!"
+
+
+//Solution 1 - If Statement
+function truncate(str, maxlength) {
+  let strLength = str.length;
+  if ( strLength > maxlength ) {
+    return str.slice(0, maxlength - 1) + '…';
+  }
+  return str
+}
+
+console.log( truncate("Hi everyone!", 20) )
+console.log( truncate("What I'd like to tell on this topic is:", 20) )
+
+//Solution 2 - Ternary Operator
+function truncate2(str, maxlength) {
+  return (str.length > maxlength) ?
+    str.slice(0, maxlength - 1) + '…' : str;
+}
+
+console.log( truncate2("Code all day and night", 16) )
+console.log( truncate2("Fly on a spaceship to outer space", 20) )
+
+//Challenge 4 - Extract the money
+
+// We have a cost in the form "$120". That is: the dollar sign goes first, and then the number.
+
+// Create a function extractCurrencyValue(str) that would extract the numeric value from such string and return it.
+
+// The example:
+
+// alert( extractCurrencyValue('$120') === 120 ); // true
+
+function extractCurrencyValue(str) {
+  return +str.slice(1)
+}
+
+console.log( extractCurrencyValue('$120') )
