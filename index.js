@@ -97,3 +97,25 @@ function randomInteger2(min, max) {
 alert( randomInteger2(1, 5) );
 alert( randomInteger2(1, 10) );
 alert( randomInteger2(1, 6) );
+
+//July 21, 2020 - Strings
+
+//Challenge - Write a function ucFirst(str) that returns the string str with the uppercased first character, for instance:
+
+// ucFirst("john") == "John";
+
+//Solution 1
+function ucFirst(str){
+  return str[0].toUpperCase() + str.slice(1)
+}
+
+console.log( ucFirst('house') )
+
+//Solution 2
+function ucFirst2(str) {
+  if (!str) return str;
+
+  return str[0].toUpperCase() + str.slice(1);
+}
+
+console.log( ucFirst("peace") ); // Peace
